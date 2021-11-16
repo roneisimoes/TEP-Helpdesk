@@ -31,4 +31,9 @@ def edit(request, pk):
     return render(request, 'form.html', data)
 
 def update(request, pk):
-    return render(request, 'index.html')
+    data = {}
+    data['db'] = Categoria.objects.get(pk=pk)
+    form = CategoriaForm(request.POST or None, instance=data['db'])
+    if form.is_valid():
+        form.save()
+        return redirect('home')
