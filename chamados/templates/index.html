@@ -41,6 +41,13 @@
             </tbody>
         </table>
     </div>
+
+    <div class="pagination">
+        {% if db.has_previous %}
+            
+        {% endif %}
+    </div>
+
     {% load static %}
     <script src="{% static 'javascript.js' %}"></script>
 </body>
