@@ -8,20 +8,25 @@
 </head>
 <body>
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Cadastro de categorias.</h1>
+        <h1>Cadastro de chamados.</h1>
     </div>
 
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <a href="/" class="btn btn-info"> Voltar </a>
+        <a href="/chamado" class="btn btn-info"> Voltar </a>
     </div>
 
     <div class="col-8 m-auto pt-2 pb-2 text-center">
        <!-- {{form.as_p}}-->
         <div id="result"></div>
-        <form name="form" id="form"  action="{% if db %}/update/{{db.id}}/{% else %}/create/{% endif %}" method="post">
+        <form name="form" id="form"  action="{% if db %}/update_chamado/{{db.id}}/{% else %}/create_chamado/{% endif %}" method="post">
             {% csrf_token %}
-            <div class="form-group mt-4">Nome: {{form.nome}}</div>
-            <div class="form-group mt-4">Descrição: {{form.descricao}}</div>
+            <div class="form-group mt-4">Titulo: {{form_chamado.titulo}}</div>
+            <div class="form-group mt-4">Descrição: {{form_chamado.descricao}}</div>
+            <div class="form-group mt-4">Data: {{form_chamado.data}}</div>
+            <div class="form-group mt-4">Categoria: {{form_chamado.categoria}}</div>
+            <div class="form-group mt-4">Status: {{form_chamado.status}}</div>
+            <div class="form-group mt-4">Responsavel: {{form_chamado.responsavel}}</div>
+
 
             <input type="submit" class="btn btn-success" value="Salvar">
         </form>
