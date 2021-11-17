@@ -20,4 +20,4 @@ class PessoaForm(ModelForm):
 class ChamadoForm(ModelForm):
     class Meta:
         model = Chamado
-        fields = ['titulo', 'descricao', 'data', 'categoria', 'status', 'responsavel']
+        fields = ['titulo', 'descricao', 'categoria', 'status', 'responsavel']

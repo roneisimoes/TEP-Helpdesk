@@ -42,7 +42,7 @@
                     <th>{{dbs.id}}</th>
                     <td>{{dbs.titulo}}</td>
                     <td>{{dbs.descricao}}</td>
-                    <td>{{dbs.data}}</td>
+                    <td>{{dbs.data|date:"d M, Y"}}</td>
                     <td>
                         <a href="/view_chamado/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>
                         <a href="/edit_chamado/{{dbs.id}}/" class="btn btn-primary">Editar</a>

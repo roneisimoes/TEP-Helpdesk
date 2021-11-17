@@ -18,15 +18,17 @@
     <div class="col-8 m-auto pt-2 pb-2 text-center">
        <!-- {{form.as_p}}-->
         <div id="result"></div>
-        <form name="form" id="form"  action="{% if db %}/update_chamado/{{db.id}}/{% else %}/create_chamado/{% endif %}" method="post">
-            {% csrf_token %}
-            <div class="form-group mt-4">Titulo: {{form_chamado.titulo}}</div>
+         <form name="form" id="form"  action="{% if db %}/update_chamado/{{db.id}}/{% else %}/create_chamado/{% endif %}" method="post">
+             {% csrf_token %}
+
+
+             {{ form_chamado.as_p }}
+            <!-- <div class="form-group mt-4">Titulo: {{form_chamado.titulo}}</div>
             <div class="form-group mt-4">Descrição: {{form_chamado.descricao}}</div>
             <div class="form-group mt-4">Data: {{form_chamado.data}}</div>
             <div class="form-group mt-4">Categoria: {{form_chamado.categoria}}</div>
             <div class="form-group mt-4">Status: {{form_chamado.status}}</div>
-            <div class="form-group mt-4">Responsavel: {{form_chamado.responsavel}}</div>
-
+            <div class="form-group mt-4">Responsavel: {{form_chamado.responsavel}}</div> -->
 
             <input type="submit" class="btn btn-success" value="Salvar">
         </form>
@@ -34,6 +36,8 @@
 
     {%load static %}
     <script src="{% static 'javascript.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
