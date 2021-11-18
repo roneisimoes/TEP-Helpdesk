@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
 # Categoria
 def home_categoria(request):
