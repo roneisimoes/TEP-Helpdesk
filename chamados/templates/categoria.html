@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Helpdesk</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% extends 'base.html' %}
 
-</head>
-<body>
-    <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <h1>Tela de Categorias.</h1>
-    </div>
+{% block menu %}
+<li class="nav-item"><a href="/" class="nav-link border border-white text-white" aria-current="page">Principal</a></li>
+{% endblock %}
 
-    <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <a href="/form_categoria" class="btn btn-success"> Adicionar </a>
-    </div>
-
-    <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <a href="/" class="btn btn-info"> Voltar </a>
+{% block conteudo %}
+    <div class="col-8 m-auto pt-1 pb-1 text-center">
+        <h1>Categorias</h1>
     </div>
 
     <div class="col-8 m-auto pt-2 pb-2 text-center">
         <form method="get">
-            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar...">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar categoria...">
         </form>
     </div>
-
     <div class="col-8 m-auto pt-2 pb-2 text-center">
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-striped">
+            <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
@@ -42,27 +31,17 @@
                     <td>{{dbs.nome}}</td>
                     <td>{{dbs.descricao}}</td>
                     <td>
-                        <a href="/view_categoria/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>
-                        <a href="/edit_categoria/{{dbs.id}}/" class="btn btn-primary">Editar</a>
-                        <a href="/delete_categoria/{{dbs.id}}/" class="btn btn-danger btnDel">Excluir</a>
+                        <a href="/view_categoria/{{dbs.id}}/" class="btn btn-success">Visualizar</a>
+                        <a href="/edit_categoria/{{dbs.id}}/" class="btn btn-secondary">Editar</a>
+                        <a href="/delete_categoria/{{dbs.id}}/" class="btn btn-dark btnDel">Excluir</a>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-
-    <div class="pagination">
-        {% if db.has_previous %}
-            <a href="?page={{ db.previous_page_number }}"> < </a>
-        {% endif %}
-        {{ db.number }}
-        {% if db.has_next %}
-            <a href="?page={{ db.next_page_number }}"> > </a>
-        {% endif %}
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <a href="/form_categoria" class="btn btn-success"> Adicionar nova </a>
     </div>
+{% endblock %}
 
-    {% load static %}
-    <script src="{% static 'javascript.js' %}"></script>
-</body>
-</html>

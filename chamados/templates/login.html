@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    {% if request.user.is_authenticated %}
+    <div class="col-md mx-auto">
+        <h3>
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            Ação não permitida
+        </h3>
+        <hr>
+        <p class="lead">
+            <strong>
+                Houve algum problema para processar a ação desejada ou você não tem permissão para isso.
+            </strong>
+        </p>
+    </div>
+    {% else %}
+    <h1 class="h3 mb-3 fw-normal" align="center">Login</h1>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{form.as_p}}
+       <!--  <div id="result"></div>
+        <form name="form" id="form"  action="{% if db %}/update_pessoa/{{db.id}}/{% else %}/create_pessoa/{% endif %}" method="post">
+            <h1 class="h3 mb-3 fw-normal" align="center">Login</h1>
+            {% csrf_token %}
+            <div class="form-group mt-4">Nome: {{form_pessoa.nome}}</div>
+            <div class="form-group mt-4">E-mail: {{form_pessoa.email}}</div>
+            <div class="form-group mt-4">Senha: {{form_pessoa.senha}}</div>
+        </form> -->
+            <input type="submit" class="btn btn-success mt-4" value="Acessar">
+        </form>
+    </div>
+    {% endif %}
+{% endblock %}
