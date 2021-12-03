@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<main class="form-signin">
+	<div class="container px-md-5" style="margin-top: 5%">
+		<form class="row px-md-5 g-3 pb-5 needs-validation" action="/cadastrar" method="post">
+			{% csrf_token %}
+			<div class="col-12 text-center">
+				<h1 class="h3 mb-3 fw-normal">Preencha o formulário abaixo</h1>
+			</div>
+			<div class="col-md-12">
+				<label class="form-label">Nome</label>
+				<input type="text" class="form-control" name="first_name" required />
+			</div>
+			<div class="col-md-12">
+				<label class="form-label">Sobrenome</label>
+				<input type="text" class="form-control" name="last_name" required />
+			</div>
+			<div class="col-md-12">
+				<label class="form-label">E-mail</label>
+				<input type="text" class="form-control" name="email" required />
+			</div>
+			<div class="col-md-12">
+				<label class="form-label">Senha</label>
+				<input type="password" class="form-control" name="password" required />
+			</div>
+
+			<div class="col-12">
+				<button class="btn btn-success float-end" type="submit">Cadastrar</button>
+			</div>
+		</form>
+	</div>
+</main>
+{% endblock %}

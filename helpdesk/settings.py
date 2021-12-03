@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chamados.apps.ChamadosConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -126,9 +127,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 #Configurações de autenticação
-LOGIN_REDIRECT_URL = 'home'
-LOGIN_URL = 'entrar'
-LOGOUT_REDIRECT_URL = 'entrar'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
